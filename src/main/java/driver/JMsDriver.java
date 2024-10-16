@@ -1,6 +1,9 @@
 package driver;
 import pkgRenderer.JMsRenderEngine;
 import pkgUtils.JMsWindowManager;
+
+import static driver.JMsSpot.*;
+
 public class JMsDriver {
     public static void main(String[] my_args) {
         JMsRenderEngine my_re = new JMsRenderEngine();
