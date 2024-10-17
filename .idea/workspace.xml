@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Create initial files needed and add previous driver">
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsSpot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Working window class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsWindowManager.java" afterDir="false" />
     </list>
@@ -74,7 +75,7 @@
       <workItem from="1728267912972" duration="10000" />
       <workItem from="1728699525142" duration="9000" />
       <workItem from="1728967308845" duration="310000" />
-      <workItem from="1729041475580" duration="1761000" />
+      <workItem from="1729041475580" duration="11768000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -84,14 +85,34 @@
       <option name="project" value="LOCAL" />
       <updated>1729042622905</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working window class">
+      <option name="closed" value="true" />
+      <created>1729043387151</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729043387151</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create initial files needed and add previous driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create initial files needed and add previous driver" />
+    <MESSAGE value="Working window class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working window class" />
   </component>
 </project>

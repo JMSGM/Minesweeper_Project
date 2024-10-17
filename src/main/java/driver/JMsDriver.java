@@ -1,4 +1,5 @@
 package driver;
+import pkgRenderer.JMsPolygonGen;
 import pkgRenderer.JMsRenderEngine;
 import pkgUtils.JMsWindowManager;
 
@@ -6,7 +7,7 @@ import static driver.JMsSpot.*;
 
 public class JMsDriver {
     public static void main(String[] my_args) {
-        JMsRenderEngine my_re = new JMsRenderEngine();
+        JMsRenderEngine my_re = new JMsPolygonGen();
         JMsWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");
         my_re.initOpenGL(JMsWindowManager.get());
         my_re.render();

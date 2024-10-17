@@ -3,14 +3,14 @@ package pkgUtils;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
-import java.nio.IntBuffer;
-
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class JMsWindowManager {
     //Field
+    int Win_Width = 0;
+    int Win_Height = 0;
     private static long window = 0;
     private static JMsWindowManager singleWindow = null;
     //Private Constructor
@@ -25,6 +25,8 @@ public class JMsWindowManager {
     }
     //Initializes Window
     public long initGLFWWindow(int win_width, int win_height, String title){
+        Win_Width = win_width;
+        Win_Height = win_height;
         GLFWErrorCallback.createPrint(System.err).set();
         if (!glfwInit()) {
             throw new IllegalStateException("Could not initialize GLFW");
@@ -65,7 +67,12 @@ public class JMsWindowManager {
     //getCurrentWindowSize TODO
 
     //getWindowSize TODO
-
+    public int[] getWindowSize(){
+        int winSize[] = new int[2];
+        winSize[0] = Win_Width;
+        winSize[1] = Win_Height;
+        return winSize;
+    }
 }
 
 
