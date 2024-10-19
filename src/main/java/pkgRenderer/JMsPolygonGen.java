@@ -2,8 +2,10 @@ package pkgRenderer;
 
 import org.lwjgl.opengl.GL11;
 
+import static org.lwjgl.glfw.GLFW.glfwPollEvents;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11C.GL_TRIANGLE_FAN;
+import static org.lwjgl.opengl.GL11C.glClear;
 
 public class JMsPolygonGen extends JMsRenderEngine{
 
@@ -32,26 +34,33 @@ public class JMsPolygonGen extends JMsRenderEngine{
 
     }
 
-    @Override
-    void generatepolygonArrays(float radius) {
-
-    }
-
-    @Override
-    void generatepolygonArrays(int rows, int cols) {
-
-    }
-
-    @Override
-    void generatepolygonArrays(int rows, int cols, int numofSides) {
-
-    }
-
 
     @Override
     void polygonColor() {
 
     }
+
+    @Override
+    public void render() {
+        while (!my_wm.isGlfwWindowClosed()) {
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+            glColor4f(2, 32, 12, 1.0f);
+            drawPolygons(3);
+            my_wm.swapBuffers();
+        }
+        my_wm.destroyGLFWWindow();
+    }
+
+    @Override
+    public void render(int radius) {
+
+    }
+
+    public void render(int delay, int row, int cols){
+
+    }
+
 
 
 
