@@ -13,8 +13,9 @@ import static org.lwjgl.opengl.GL11C.glClear;
 public class JMsPolygonGen extends JMsRenderEngine{
     //Field
     private final int NUM_3D_COORDS = 0;
+    private final int z0 = 0;
     private final int MAX_CIRCLES = 100;
-    private static final float C_RADIUS = 0.1f;
+    private static final float C_RADIUS = 0.05f;
     private final int TRIANGLES_PER_CIRCLE = 40;
     private final Random myRandom = new Random();
     private JMsWindowManager my_wm;
@@ -29,7 +30,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
         for(int i = 0; i <= sides; ++i){
             float x = radius * (float)Math.cos(theta);
             float y = radius * (float)Math.sin(theta);
-            glVertex3f(x, y, 0.0f);
+            glVertex3f(x, y, z0);
             theta += delTheta;
         }
     }
@@ -42,12 +43,6 @@ public class JMsPolygonGen extends JMsRenderEngine{
     }
 
     @Override
-    void generateRandomPolygons(int numberOfPoly) {
-
-    }
-
-
-    @Override
     void polygonColor() {
 
     }
@@ -57,21 +52,39 @@ public class JMsPolygonGen extends JMsRenderEngine{
     public void render(int radius) {
 
     }
-
+    @Override
     public void render(int delay, int row, int cols){
 
     }
-
-    private void drawRandomPoly(float centerX, float centerY, int sides, float radius){
+    @Override
+    void renderRandomPolygons(int numberOfPoly) {
+        updateRandValues();
+        for(int i = 0; i < numberOfPoly; i++){
+            glColor4f(rand_colors[i][0], rand_colors[i][1], rand_colors[i][2], 1.0f);
+            vertForRandomPoly(rand_coords[i][0], rand_coords[i][1], TRIANGLES_PER_CIRCLE, C_RADIUS);
+        }
+    }
+    private void vertForRandomPoly(float centerX, float centerY, int sides, float radius){
         float delTheta = 2.0f*(float)Math.PI/ sides;
         float theta = 0.0f;
         glBegin(GL_TRIANGLE_FAN);
         for(int i = 0; i <= sides; ++i){
-            float x = radius * (float)Math.cos(theta);
-            float y = radius * (float)Math.sin(theta);
-            glVertex3f(x, y, 0.0f);
+            float x = centerX + radius * (float)Math.cos(theta);
+            float y = centerY + radius * (float)Math.sin(theta);
+            glVertex3f(x, y, z0);
             theta += delTheta;
         }glEnd();
+    }
+    private void updateRandValues(){
+        for(int i = 0; i < MAX_CIRCLES; i++) {
+            rand_colors[i][0] = myRandom.nextFloat();;
+            rand_colors[i][1] = myRandom.nextFloat();;
+            rand_colors[i][2] = myRandom.nextFloat();;
+            float maxX = 1.0f - C_RADIUS;
+            float maxY = 1.0f - C_RADIUS;
+            rand_coords[i][0] = myRandom.nextFloat() * 2.0f * maxX - maxX;
+            rand_coords[i][1] = myRandom.nextFloat() * 2.0f * maxY - maxY;
+        }
     }
 
 

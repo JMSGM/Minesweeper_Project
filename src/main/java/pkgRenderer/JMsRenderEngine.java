@@ -18,7 +18,7 @@ public abstract class JMsRenderEngine {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
             glColor4f(2, 32, 12, 1.0f);
-            drawPolygons(5);
+            renderRandomPolygons(40);
             my_wm.swapBuffers();
         }
         my_wm.destroyGLFWWindow();
@@ -27,7 +27,7 @@ public abstract class JMsRenderEngine {
     public abstract void render(int delay, int row, int cols);
     abstract void generateVertices(int sides, float radius);
     abstract void drawPolygons(int numSides);
-    abstract void generateRandomPolygons(int numberOfPoly);
+    abstract void renderRandomPolygons(int numberOfPoly);
     abstract void polygonColor();
 
 
