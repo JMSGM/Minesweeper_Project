@@ -13,7 +13,16 @@ public abstract class JMsRenderEngine {
         my_wm.updateContextToThis();
 
     }
-    public abstract void render();
+    public void render(){
+        while (!my_wm.isGlfwWindowClosed()) {
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+            glColor4f(2, 32, 12, 1.0f);
+            drawPolygons(5);
+            my_wm.swapBuffers();
+        }
+        my_wm.destroyGLFWWindow();
+    }
     public abstract void render(int radius);
     public abstract void render(int delay, int row, int cols);
     abstract void generateVertices(int sides, float radius);
