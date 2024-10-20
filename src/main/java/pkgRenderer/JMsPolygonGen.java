@@ -42,19 +42,24 @@ public class JMsPolygonGen extends JMsRenderEngine{
 
     @Override
     void polygonColor() {
-
+        float r = myRandom.nextFloat();
+        float g = myRandom.nextFloat();
+        float b = myRandom.nextFloat();
+        float opac = 0.0f;
+        glColor4f(r, g, b, opac);
     }
 
 
-    @Override
-    public void render(int radius) {
-
-    }
     @Override
     public void initOpenGL(JMsWindowManager wm) {
         super.initOpenGL(wm);
         this.my_wm = wm;  // Initialize my_wm
     }
+    @Override
+    public void render(int radius) {
+
+    }
+
     @Override
     public void render(int delay, int row, int cols) {
         while (!my_wm.isGlfwWindowClosed()) {
@@ -62,7 +67,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            glColor4f(0.2f, 0.3f, 0.8f, 1.0f);
+            polygonColor();
             renderRandomPolygons(40);
 
             my_wm.swapBuffers();
