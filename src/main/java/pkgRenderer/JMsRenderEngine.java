@@ -23,8 +23,8 @@ public abstract class JMsRenderEngine {
     public abstract void render(int radius);
     public abstract void render(int delay, int row, int cols);
     abstract void generateVertices(int sides, float radius);
-    abstract void drawPolygons(int numSides);
-    abstract void renderRandomPolygons(int numberOfPoly);
+    abstract void drawPolygons(float cx, float cy, int sides, float radius);
+    abstract void renderRandomPolygons(int polyAmount);
     abstract void polygonColor();
 
 

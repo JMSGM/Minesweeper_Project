@@ -22,6 +22,38 @@ public class JMsPolygonGen extends JMsRenderEngine{
     private final int UPDATE_INTERVAL = 100; //MILLISECONDS
     private final float[][] rand_coords = new float[MAX_CIRCLES][2];
     private final float[][] rand_colors = new float[MAX_CIRCLES][3];
+
+    @Override
+    public void initOpenGL(JMsWindowManager wm) {
+        super.initOpenGL(wm);
+        this.my_wm = wm;
+    }
+    @Override
+    public void render(int radius) {
+
+    }
+
+    @Override
+    public void render(int delay, int row, int cols) {
+        while (!my_wm.isGlfwWindowClosed()) {
+
+            glfwPollEvents();
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            generatePolygonArray(row, cols);
+
+            my_wm.swapBuffers();
+            //DELAY
+            if (delay > 0) {
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        my_wm.destroyGLFWWindow();
+    }
     @Override
     void generateVertices(int sides, float radius) {
         float delTheta = 2.0f*(float)Math.PI/ sides;
@@ -36,8 +68,17 @@ public class JMsPolygonGen extends JMsRenderEngine{
     }
 
     @Override
-    void drawPolygons(int numSides) {
-        generateVertices(numSides,1.0f);
+    void drawPolygons(float cx, float cy, int sides, float radius) {
+        float delTheta = 2.0f*(float)Math.PI/ sides;
+        float theta = 0.0f;
+        glBegin(GL_TRIANGLE_FAN);
+        glVertex3f(cx, cy, z0);
+        for(int i = 0; i <= sides; ++i){
+            float x = cx + radius * (float)Math.cos(theta);
+            float y = cy + radius * (float)Math.sin(theta);
+            glVertex3f(x, y, z0);
+            theta += delTheta;
+        }glEnd();
     }
 
     @Override
@@ -49,44 +90,26 @@ public class JMsPolygonGen extends JMsRenderEngine{
         glColor4f(r, g, b, opac);
     }
 
+    private void generatePolygonArray(int rows, int cols){
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
 
-    @Override
-    public void initOpenGL(JMsWindowManager wm) {
-        super.initOpenGL(wm);
-        this.my_wm = wm;  // Initialize my_wm
-    }
-    @Override
-    public void render(int radius) {
-
-    }
-
-    @Override
-    public void render(int delay, int row, int cols) {
-        while (!my_wm.isGlfwWindowClosed()) {
-
-            glfwPollEvents();
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            polygonColor();
-            renderRandomPolygons(40);
-
-            my_wm.swapBuffers();
-            //DELAY
-            if (delay > 0) {
-                try {
-                    Thread.sleep(delay);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+             float cx = -1.0f + xSpace * (col + 0.5f);
+             float cy = -1.0f + ySpace * (row + 0.5f);
+             polygonColor();
+             drawPolygons(cx, cy, 40, radius);
             }
         }
-        my_wm.destroyGLFWWindow();
     }
 
+
     @Override
-    void renderRandomPolygons(int numberOfPoly) {
+    void renderRandomPolygons(int polyAmount) {
         updateRandValues();
-        for(int i = 0; i < numberOfPoly; i++){
+        for(int i = 0; i < polyAmount; i++){
             glColor4f(rand_colors[i][0], rand_colors[i][1], rand_colors[i][2], 1.0f);
             vertForRandomPoly(rand_coords[i][0], rand_coords[i][1], TRIANGLES_PER_CIRCLE, C_RADIUS);
         }
