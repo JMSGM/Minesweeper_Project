@@ -105,6 +105,20 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }
     }
 
+    private void generatePolygonArray(int rows, int cols, int sides){
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
+                polygonColor();
+                drawPolygons(cx, cy, sides, radius);
+            }
+        }
+    }
 
     @Override
     void renderRandomPolygons(int polyAmount) {
