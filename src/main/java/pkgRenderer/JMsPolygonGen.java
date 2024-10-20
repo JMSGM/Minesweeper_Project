@@ -17,6 +17,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
     private final int MAX_CIRCLES = 100;
     private static final float C_RADIUS = 0.05f;
     private final int TRIANGLES_PER_CIRCLE = 40;
+    private final int DEFAULT_SIDES = 40;
     private final Random myRandom = new Random();
     private JMsWindowManager my_wm;
     private final int UPDATE_INTERVAL = 100; //MILLISECONDS
@@ -30,7 +31,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
     }
     @Override
     public void render(int radius) {
-
+    
     }
 
     @Override
@@ -98,10 +99,28 @@ public class JMsPolygonGen extends JMsRenderEngine{
         float r = myRandom.nextFloat();
         float g = myRandom.nextFloat();
         float b = myRandom.nextFloat();
-        float opac = 0.0f;
+        float opac = z0;
         glColor4f(r, g, b, opac);
     }
+    private void generatePolygonArray(float radius, int sides){
 
+        int cols = (int)(2.0f / (2.0f * radius));
+        int rows = (int)(2.0f / (2.0f * radius));
+
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+
+        float NOLRadius = radius * 0.9f;
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
+                polygonColor();
+                drawPolygons(cx, cy, sides, NOLRadius);
+            }
+        }
+    }
     private void generatePolygonArray(int rows, int cols){
         float xSpace = 2.0f / cols;
         float ySpace = 2.0f / rows;
@@ -112,7 +131,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
              float cx = -1.0f + xSpace * (col + 0.5f);
              float cy = -1.0f + ySpace * (row + 0.5f);
              polygonColor();
-             drawPolygons(cx, cy, 40, radius);
+             drawPolygons(cx, cy, DEFAULT_SIDES, radius);
             }
         }
     }
