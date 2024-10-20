@@ -16,9 +16,6 @@ public abstract class JMsRenderEngine {
     public void render(){
         while (!my_wm.isGlfwWindowClosed()) {
             glfwPollEvents();
-            glClear(GL_COLOR_BUFFER_BIT);
-            glColor4f(2, 32, 12, 1.0f);
-            renderRandomPolygons(40);
             my_wm.swapBuffers();
         }
         my_wm.destroyGLFWWindow();

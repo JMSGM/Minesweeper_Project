@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Create field and method for random polygon generation">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
     </list>
@@ -73,7 +74,7 @@
       <workItem from="1728267912972" duration="10000" />
       <workItem from="1728699525142" duration="9000" />
       <workItem from="1728967308845" duration="310000" />
-      <workItem from="1729041475580" duration="20774000" />
+      <workItem from="1729041475580" duration="22743000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -115,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729367155680</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()">
+      <option name="closed" value="true" />
+      <created>1729369571772</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729369571772</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +147,7 @@
     <MESSAGE value="Implement generateVert and drawPolygons, Create abstract class and methods, implement methods in subclass" />
     <MESSAGE value="revise abstract methods" />
     <MESSAGE value="Create field and method for random polygon generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create field and method for random polygon generation" />
+    <MESSAGE value="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()" />
   </component>
 </project>
