@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="new methods to implement, generatePolygonArray, revised drawPolygon" />
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Overload generatePolygonArray() to also take in sides for argument">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +85,7 @@
       <workItem from="1728267912972" duration="10000" />
       <workItem from="1728699525142" duration="9000" />
       <workItem from="1728967308845" duration="310000" />
-      <workItem from="1729041475580" duration="26816000" />
+      <workItem from="1729041475580" duration="28109000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -155,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729395297090</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Overload generatePolygonArray() to also take in sides for argument">
+      <option name="closed" value="true" />
+      <created>1729395770667</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729395770667</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +194,7 @@
     <MESSAGE value="Add delay to overrided three param render()" />
     <MESSAGE value="Implement PolygonColor(), generates random colors" />
     <MESSAGE value="new methods to implement, generatePolygonArray, revised drawPolygon" />
-    <option name="LAST_COMMIT_MESSAGE" value="new methods to implement, generatePolygonArray, revised drawPolygon" />
+    <MESSAGE value="Overload generatePolygonArray() to also take in sides for argument" />
+    <option name="LAST_COMMIT_MESSAGE" value="Overload generatePolygonArray() to also take in sides for argument" />
   </component>
 </project>

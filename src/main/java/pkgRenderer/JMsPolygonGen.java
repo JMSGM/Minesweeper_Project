@@ -34,21 +34,33 @@ public class JMsPolygonGen extends JMsRenderEngine{
     }
 
     @Override
-    public void render(int delay, int row, int cols) {
+    public void render(int delay, int rows, int cols) {
         while (!my_wm.isGlfwWindowClosed()) {
 
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            generatePolygonArray(row, cols);
+            for (int sides = 3; sides <= 20; sides++) {
+                // Check if the window should close during each frame
+                if (my_wm.isGlfwWindowClosed()) {
+                    break;
+                }
 
-            my_wm.swapBuffers();
-            //DELAY
-            if (delay > 0) {
-                try {
-                    Thread.sleep(delay);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+                glClear(GL_COLOR_BUFFER_BIT);
+
+                generatePolygonArray(rows, cols, sides);
+
+                my_wm.swapBuffers();
+
+                glfwPollEvents();
+
+
+                if (delay > 0) {
+                    try {
+                        Thread.sleep(delay);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
