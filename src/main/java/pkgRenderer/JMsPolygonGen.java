@@ -44,12 +44,12 @@ public class JMsPolygonGen extends JMsRenderEngine{
 
                 glClear(GL_COLOR_BUFFER_BIT);
 
+                polygonColors();
                 generatePolygonArray(radius, sides);
 
                 my_wm.swapBuffers();
 
                 glfwPollEvents();
-
 
                 if (UPDATE_INTERVAL > 0) {
                     try {
@@ -79,6 +79,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
 
                 glClear(GL_COLOR_BUFFER_BIT);
 
+                polygonColors();
                 generatePolygonArray(rows, cols, sides);
 
                 my_wm.swapBuffers();
@@ -124,14 +125,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }glEnd();
     }
 
-    @Override
-    void polygonColor() {
-        float r = myRandom.nextFloat();
-        float g = myRandom.nextFloat();
-        float b = myRandom.nextFloat();
-        float opac = z0;
-        glColor4f(r, g, b, opac);
-    }
+
     private void generatePolygonArray(float radius, int sides){
 
         int cols = (int)(2.0f / (2.0f * radius));
@@ -146,7 +140,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             for(int col = 0; col < cols; col++){
                 float cx = -1.0f + xSpace * (col + 0.5f);
                 float cy = -1.0f + ySpace * (row + 0.5f);
-                polygonColor();
+
                 drawPolygons(cx, cy, sides, NOLRadius);
             }
         }
@@ -160,7 +154,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             for(int col = 0; col < cols; col++){
              float cx = -1.0f + xSpace * (col + 0.5f);
              float cy = -1.0f + ySpace * (row + 0.5f);
-             polygonColor();
+
              drawPolygons(cx, cy, DEFAULT_SIDES, radius);
             }
         }
@@ -175,7 +169,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             for(int col = 0; col < cols; col++){
                 float cx = -1.0f + xSpace * (col + 0.5f);
                 float cy = -1.0f + ySpace * (row + 0.5f);
-                polygonColor();
+
                 drawPolygons(cx, cy, sides, radius);
             }
         }
