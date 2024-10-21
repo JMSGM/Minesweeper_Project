@@ -25,7 +25,6 @@ public abstract class JMsRenderEngine {
     }
     public abstract void render(float radius);
     public abstract void render(int delay, int row, int cols);
-    abstract void generateVertices(int sides, float radius);
     abstract void drawPolygons(float cx, float cy, int sides, float radius);
     abstract void renderRandomPolygons(int polyAmount);
     protected void polygonColors(){

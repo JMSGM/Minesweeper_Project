@@ -98,20 +98,8 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }
         my_wm.destroyGLFWWindow();
     }
-    @Override
-    void generateVertices(int sides, float radius) {
-        float delTheta = 2.0f*(float)Math.PI/ sides;
-        float theta = 0.0f;
-        glBegin(GL_TRIANGLE_FAN);
-        for(int i = 0; i <= sides; ++i){
-            float x = radius * (float)Math.cos(theta);
-            float y = radius * (float)Math.sin(theta);
-            glVertex3f(x, y, z0);
-            theta += delTheta;
-        }glEnd();
-    }
 
-    @Override
+    @Override //Creates and Draws
     void drawPolygons(float cx, float cy, int sides, float radius) {
         float delTheta = 2.0f*(float)Math.PI/ sides;
         float theta = 0.0f;
@@ -125,56 +113,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }glEnd();
     }
 
-
-    private void generatePolygonArray(float radius, int sides){
-
-        int cols = (int)(2.0f / (2.0f * radius));
-        int rows = (int)(2.0f / (2.0f * radius));
-
-        float xSpace = 2.0f / cols;
-        float ySpace = 2.0f / rows;
-
-        float NOLRadius = radius * 0.9f;
-
-        for(int row = 0; row < rows; row++){
-            for(int col = 0; col < cols; col++){
-                float cx = -1.0f + xSpace * (col + 0.5f);
-                float cy = -1.0f + ySpace * (row + 0.5f);
-
-                drawPolygons(cx, cy, sides, NOLRadius);
-            }
-        }
-    }
-    private void generatePolygonArray(int rows, int cols){
-        float xSpace = 2.0f / cols;
-        float ySpace = 2.0f / rows;
-        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
-
-        for(int row = 0; row < rows; row++){
-            for(int col = 0; col < cols; col++){
-             float cx = -1.0f + xSpace * (col + 0.5f);
-             float cy = -1.0f + ySpace * (row + 0.5f);
-
-             drawPolygons(cx, cy, DEFAULT_SIDES, radius);
-            }
-        }
-    }
-
-    private void generatePolygonArray(int rows, int cols, int sides){
-        float xSpace = 2.0f / cols;
-        float ySpace = 2.0f / rows;
-        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
-
-        for(int row = 0; row < rows; row++){
-            for(int col = 0; col < cols; col++){
-                float cx = -1.0f + xSpace * (col + 0.5f);
-                float cy = -1.0f + ySpace * (row + 0.5f);
-
-                drawPolygons(cx, cy, sides, radius);
-            }
-        }
-    }
-
+    //Random Polygons Methods
     @Override
     void renderRandomPolygons(int polyAmount) {
         updateRandValues();
@@ -205,6 +144,56 @@ public class JMsPolygonGen extends JMsRenderEngine{
             rand_coords[i][1] = myRandom.nextFloat() * 2.0f * maxY - maxY;
         }
     }
+    //Generate Polygon Array Methods
+    private void generatePolygonArray(float radius, int sides){
+
+        int cols = (int)(2.0f / (2.0f * radius));
+        int rows = (int)(2.0f / (2.0f * radius));
+
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+
+        float NOLRadius = radius * 0.9f;
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
+
+                drawPolygons(cx, cy, sides, NOLRadius);
+            }
+        }
+    }
+    private void generatePolygonArray(int rows, int cols){
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
+
+                drawPolygons(cx, cy, DEFAULT_SIDES, radius);
+            }
+        }
+    }
+
+    private void generatePolygonArray(int rows, int cols, int sides){
+        float xSpace = 2.0f / cols;
+        float ySpace = 2.0f / rows;
+        float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
+
+                drawPolygons(cx, cy, sides, radius);
+            }
+        }
+    }
+
 
 
 }
