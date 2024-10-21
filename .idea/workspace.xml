@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Implement animation triangle to circle with overloaded render">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="implement generatePolygonArray() overrride, takes in radius to calculate rows and cols of polygons within border">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +86,7 @@
       <workItem from="1728699525142" duration="9000" />
       <workItem from="1728967308845" duration="310000" />
       <workItem from="1729041475580" duration="29189000" />
-      <workItem from="1729453947018" duration="1445000" />
+      <workItem from="1729453947018" duration="2953000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -175,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729396993644</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="implement generatePolygonArray() overrride, takes in radius to calculate rows and cols of polygons within border">
+      <option name="closed" value="true" />
+      <created>1729467470833</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729467470833</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +213,7 @@
     <MESSAGE value="new methods to implement, generatePolygonArray, revised drawPolygon" />
     <MESSAGE value="Overload generatePolygonArray() to also take in sides for argument" />
     <MESSAGE value="Implement animation triangle to circle with overloaded render" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement animation triangle to circle with overloaded render" />
+    <MESSAGE value="implement generatePolygonArray() overrride, takes in radius to calculate rows and cols of polygons within border" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement generatePolygonArray() overrride, takes in radius to calculate rows and cols of polygons within border" />
   </component>
 </project>
