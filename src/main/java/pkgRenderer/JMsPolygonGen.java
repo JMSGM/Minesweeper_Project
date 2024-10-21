@@ -20,7 +20,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
     private final int DEFAULT_SIDES = 40;
     private final Random myRandom = new Random();
     private JMsWindowManager my_wm;
-    private final int UPDATE_INTERVAL = 100; //MILLISECONDS
+    private final int UPDATE_INTERVAL = 200; //MILLISECONDS
     private final float[][] rand_coords = new float[MAX_CIRCLES][2];
     private final float[][] rand_colors = new float[MAX_CIRCLES][3];
 
@@ -30,7 +30,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
         this.my_wm = wm;
     }
     @Override
-    public void render(int radius) {
+    public void render(float radius) {
         while (!my_wm.isGlfwWindowClosed()) {
 
             glfwPollEvents();

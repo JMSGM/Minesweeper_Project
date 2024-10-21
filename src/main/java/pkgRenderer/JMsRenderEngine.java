@@ -20,7 +20,7 @@ public abstract class JMsRenderEngine {
         }
         my_wm.destroyGLFWWindow();
     }
-    public abstract void render(int radius);
+    public abstract void render(float radius);
     public abstract void render(int delay, int row, int cols);
     abstract void generateVertices(int sides, float radius);
     abstract void drawPolygons(float cx, float cy, int sides, float radius);
