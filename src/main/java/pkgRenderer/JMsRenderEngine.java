@@ -19,41 +19,20 @@ public abstract class JMsRenderEngine {
         this.my_wm = my_wm;
         my_wm.updateContextToThis();
     }
-    public void render(){
-        while (!my_wm.isGlfwWindowClosed()) {
+    public void render() {
+        // Generate the random polygon once, before entering the rendering loop
+        JMsPolygon randomPolygon = createRandomObject();
 
+        while (!my_wm.isGlfwWindowClosed()) {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            for (int sides = 3; sides <= DEFAULT_SIDES; sides++) {
-                // Check if the window should close during each frame
-                if (my_wm.isGlfwWindowClosed()) {
-                    break;
-                }
+            // Render the previously created random polygon
+            drawRandomObject(randomPolygon);
 
-                glClear(GL_COLOR_BUFFER_BIT);
-
-                float R = myRandom.nextFloat();
-                float G = myRandom.nextFloat();
-                float B = myRandom.nextFloat();
-                float OPAC = myRandom.nextFloat();
-                glColor4f(R, G, B, OPAC);
-
-                generatePolygonArray(DEFAULT_ROWS, DEFAULT_COLS);
-
-                my_wm.swapBuffers();
-
-                glfwPollEvents();
-
-                if (DEFAULT_DELAY > 0) {
-                    try {
-                        Thread.sleep(DEFAULT_DELAY);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
+            my_wm.swapBuffers();
         }
+
         my_wm.destroyGLFWWindow();
     }
     public void render(float radius) {
@@ -136,7 +115,8 @@ public abstract class JMsRenderEngine {
     protected abstract void generatePolygonArray(int row, int cols, int sides);
     protected abstract void generatePolygonArray(float radius, int sides);
     protected abstract void generatePolygonArray(int row, int col);
-
+    protected  abstract void drawRandomObject(JMsPolygon polygonObj);
+    protected abstract JMsPolygon createRandomObject();
 
 
 

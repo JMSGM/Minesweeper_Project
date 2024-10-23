@@ -47,6 +47,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             vertForRandomPoly(RAND_COORD[i][0], RAND_COORD[i][1], TRIANGLES_PER_CIRCLE, C_RADIUS);
         }
     }
+    //TODO convert centers into array
     private void vertForRandomPoly(float centerX, float centerY, int sides, float radius){
         float delTheta = 2.0f*(float)Math.PI/ sides;
         float theta = 0.0f;
@@ -124,7 +125,24 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }
     }
     //Generate Random Object
+    @Override
+     protected JMsPolygon createRandomObject(){
+        int objSides = myRandom.nextInt(10) + 3;
+        float objRadius = myRandom.nextFloat() * 0.5f + 0.1f;
 
+        float[] objCenter = new float[2];
+        float maxX = 1.0f - objRadius;
+        float maxY = 1.0f - objRadius;
+        objCenter[0] = myRandom.nextFloat() * 2.0f * maxX - maxX;
+        objCenter[1] = myRandom.nextFloat() * 2.0f * maxY - maxY;
+
+        JMsPolygon PolyObj = new JMsPolygon(objRadius, objCenter, objSides);
+        return PolyObj;
+    }
+    @Override
+    protected void drawRandomObject(JMsPolygon polygonObj){
+        drawPolygons(polygonObj.CENTER_COORDS[0], polygonObj.CENTER_COORDS[1], polygonObj.NUMSIDES, polygonObj.POLYGON_RADIUS);
+    }
 
 
 }

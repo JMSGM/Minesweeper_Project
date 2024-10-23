@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Move renderer methods to the renderEngine class, create new polygon class for random object creation, capitalize variable names">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Add description for one of generatePolygonArray, fix default render to display polygons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
     </list>
@@ -88,7 +88,7 @@
       <workItem from="1728967308845" duration="310000" />
       <workItem from="1729041475580" duration="29189000" />
       <workItem from="1729453947018" duration="17950000" />
-      <workItem from="1729706462275" duration="5772000" />
+      <workItem from="1729706462275" duration="9060000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -226,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729706363521</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add description for one of generatePolygonArray, fix default render to display polygons">
+      <option name="closed" value="true" />
+      <created>1729713795899</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729713795899</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +269,7 @@
     <MESSAGE value="implement polygonColor() method in engine class and use methods inside overridden render methods" />
     <MESSAGE value="remove generateVertices abstract method and implementation" />
     <MESSAGE value="Move renderer methods to the renderEngine class, create new polygon class for random object creation, capitalize variable names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move renderer methods to the renderEngine class, create new polygon class for random object creation, capitalize variable names" />
+    <MESSAGE value="Add description for one of generatePolygonArray, fix default render to display polygons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add description for one of generatePolygonArray, fix default render to display polygons" />
   </component>
 </project>
