@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="overridden render() with working generatePolygonArray, fix bug">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="remove generateVertices abstract method and implementation">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
@@ -86,7 +88,7 @@
       <workItem from="1728699525142" duration="9000" />
       <workItem from="1728967308845" duration="310000" />
       <workItem from="1729041475580" duration="29189000" />
-      <workItem from="1729453947018" duration="3273000" />
+      <workItem from="1729453947018" duration="9343000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -192,7 +194,31 @@
       <option name="project" value="LOCAL" />
       <updated>1729469266223</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="revise radius parameters to float, implement working overriden render() with one param and generatePolygonArray with one param">
+      <option name="closed" value="true" />
+      <created>1729469765221</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1729469765221</updated>
+    </task>
+    <task id="LOCAL-00015" summary="implement polygonColor() method in engine class and use methods inside overridden render methods">
+      <option name="closed" value="true" />
+      <created>1729470292332</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1729470292332</updated>
+    </task>
+    <task id="LOCAL-00016" summary="remove generateVertices abstract method and implementation">
+      <option name="closed" value="true" />
+      <created>1729470866460</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729470866460</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +249,9 @@
     <MESSAGE value="Implement animation triangle to circle with overloaded render" />
     <MESSAGE value="implement generatePolygonArray() overrride, takes in radius to calculate rows and cols of polygons within border" />
     <MESSAGE value="overridden render() with working generatePolygonArray, fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="overridden render() with working generatePolygonArray, fix bug" />
+    <MESSAGE value="revise radius parameters to float, implement working overriden render() with one param and generatePolygonArray with one param" />
+    <MESSAGE value="implement polygonColor() method in engine class and use methods inside overridden render methods" />
+    <MESSAGE value="remove generateVertices abstract method and implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove generateVertices abstract method and implementation" />
   </component>
 </project>
