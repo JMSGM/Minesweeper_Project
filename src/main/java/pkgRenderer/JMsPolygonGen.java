@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11C.glClear;
 
 public class JMsPolygonGen extends JMsRenderEngine{
     //Field
-    private final int DEFAULT_SIDES = 20;
+    private final int DEFAULT_SIDES = 25;
     private  final float C_RADIUS = 0.05f;
     private final int Z0 = 0;
     private final int MAX_CIRCLES = 100;
@@ -21,8 +21,10 @@ public class JMsPolygonGen extends JMsRenderEngine{
     private final int UPDATE_INTERVAL = 200; //MILLISECONDS
     private final float[][] RAND_COORD = new float[MAX_CIRCLES][2];
     private final float[][] RAND_COLORS = new float[MAX_CIRCLES][3];
+    private JMsPolygon[][] polygons;
 
-    @Override //Creates and Draws
+    //Creates and Draws:
+    @Override
     void drawPolygons(float cx, float cy, int sides, float radius) {
         float delTheta = 2.0f*(float)Math.PI/ sides;
         float theta = 0.0f;
@@ -36,7 +38,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
         }glEnd();
     }
 
-    //Random Polygons Methods
+    //Random Polygons Methods:
     @Override
     void renderRandomPolygons(int polyAmount) {
         updateRandValues();
@@ -67,7 +69,10 @@ public class JMsPolygonGen extends JMsRenderEngine{
             RAND_COORD[i][1] = myRandom.nextFloat() * 2.0f * maxY - maxY;
         }
     }
-    //Generate Polygon Array Methods
+    //Generate Polygon Array Methods:
+    /*Calculate horizontal/vertical space between polygons then use to offset center
+    and avoid overlap, calculate radius based on min space for apropriate polygon size,
+    for loop starts with [-1,-1] in NDC space and generates center left to right from bottom to up*/
     @Override
     protected void generatePolygonArray(int rows, int cols, int sides){
         float xSpace = 2.0f / cols;
@@ -103,8 +108,8 @@ public class JMsPolygonGen extends JMsRenderEngine{
             }
         }
     }
-
-    private void generatePolygonArray(int rows, int cols){
+    @Override
+     protected void generatePolygonArray(int rows, int cols){
         float xSpace = 2.0f / cols;
         float ySpace = 2.0f / rows;
         float radius = Math.min(xSpace, ySpace)/2.0f*0.9f;
@@ -118,6 +123,7 @@ public class JMsPolygonGen extends JMsRenderEngine{
             }
         }
     }
+    //Generate Random Object
 
 
 

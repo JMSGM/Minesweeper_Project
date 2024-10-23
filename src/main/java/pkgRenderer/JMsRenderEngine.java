@@ -9,7 +9,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11C.glClear;
 
 public abstract class JMsRenderEngine {
-    private final int DEFAULT_DELAY = 500;
+    private final int DEFAULT_DELAY = 200;
     private final int DEFAULT_ROWS = 30;
     private final int DEFAULT_COLS = 30;
     private final int DEFAULT_SIDES = 20;
@@ -25,7 +25,7 @@ public abstract class JMsRenderEngine {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            for (int sides = 3; sides <= 20; sides++) {
+            for (int sides = 3; sides <= DEFAULT_SIDES; sides++) {
                 // Check if the window should close during each frame
                 if (my_wm.isGlfwWindowClosed()) {
                     break;
@@ -33,8 +33,13 @@ public abstract class JMsRenderEngine {
 
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                polygonColors();
-                generatePolygonArray(DEFAULT_ROWS, DEFAULT_COLS, DEFAULT_SIDES);
+                float R = myRandom.nextFloat();
+                float G = myRandom.nextFloat();
+                float B = myRandom.nextFloat();
+                float OPAC = myRandom.nextFloat();
+                glColor4f(R, G, B, OPAC);
+
+                generatePolygonArray(DEFAULT_ROWS, DEFAULT_COLS);
 
                 my_wm.swapBuffers();
 
@@ -57,7 +62,7 @@ public abstract class JMsRenderEngine {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            for (int sides = 3; sides <= 20; sides++) {
+            for (int sides = 3; sides <= DEFAULT_SIDES; sides++) {
                 // Check if the window should close during each frame
                 if (my_wm.isGlfwWindowClosed()) {
                     break;
@@ -65,7 +70,12 @@ public abstract class JMsRenderEngine {
 
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                polygonColors();
+                float R = myRandom.nextFloat();
+                float G = myRandom.nextFloat();
+                float B = myRandom.nextFloat();
+                float OPAC = myRandom.nextFloat();
+                glColor4f(R, G, B, OPAC);
+
                 generatePolygonArray(radius, sides);
 
                 my_wm.swapBuffers();
@@ -89,7 +99,7 @@ public abstract class JMsRenderEngine {
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            for (int sides = 3; sides <= 20; sides++) {
+            for (int sides = 3; sides <= DEFAULT_SIDES; sides++) {
                 // Check if the window should close during each frame
                 if (my_wm.isGlfwWindowClosed()) {
                     break;
@@ -125,14 +135,7 @@ public abstract class JMsRenderEngine {
     abstract void renderRandomPolygons(int polyAmount);
     protected abstract void generatePolygonArray(int row, int cols, int sides);
     protected abstract void generatePolygonArray(float radius, int sides);
-    protected void polygonColors(){
-        float R = myRandom.nextFloat();
-        float G = myRandom.nextFloat();
-        float B = myRandom.nextFloat();
-        float OPAC = myRandom.nextFloat();
-        glColor4f(R, G, B, OPAC);
-
-    }
+    protected abstract void generatePolygonArray(int row, int col);
 
 
 
