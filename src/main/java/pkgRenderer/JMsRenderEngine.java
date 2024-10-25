@@ -155,7 +155,9 @@ public abstract class JMsRenderEngine {
     protected void setDEFAULT_POLYGON_AMOUNT(int polyAmount){
         this.DEFAULT_POLYGON_AMOUNT = polyAmount;
     }
-
+    protected void setDEFAULT_SIDES(int sides){
+        this.DEFAULT_SIDES = sides;
+    }
 
 
 }

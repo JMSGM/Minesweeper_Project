@@ -11,7 +11,7 @@ public class JMsDriver {
         JMsWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");
         my_re.initOpenGL(JMsWindowManager.get());
         final float RADIUS = 0.5f;
-        final int FRAME_DELAY = 200, NUM_ROWS = 20, NUM_COLS = 20;
-        my_re.render();
+        final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
+        my_re.render(FRAME_DELAY, NUM_ROWS, NUM_COLS);
     } // public static void main(String[] my_args)
 } // public class csc133Driver(...)

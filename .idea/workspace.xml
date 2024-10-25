@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Add description for one of generatePolygonArray, fix default render to display polygons">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="add setter methods in RenderEngine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/JMsDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsPolygonGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +70,26 @@
       <recent name="C:\Users\jmsag\IdeaProjects\CSC133_Assignment" />
       <recent name="C:\Users\jmsag\IdeaProjects\CSC133_Assignment\src\main\java\CSC133" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JMsDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="driver.JMsDriver" />
+      <module name="CSC133_Assignment.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JMsDriver" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -234,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729713795899</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add setter methods in RenderEngine">
+      <option name="closed" value="true" />
+      <created>1729831410315</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1729831410315</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +297,7 @@
     <MESSAGE value="remove generateVertices abstract method and implementation" />
     <MESSAGE value="Move renderer methods to the renderEngine class, create new polygon class for random object creation, capitalize variable names" />
     <MESSAGE value="Add description for one of generatePolygonArray, fix default render to display polygons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add description for one of generatePolygonArray, fix default render to display polygons" />
+    <MESSAGE value="add setter methods in RenderEngine" />
+    <option name="LAST_COMMIT_MESSAGE" value="add setter methods in RenderEngine" />
   </component>
 </project>
