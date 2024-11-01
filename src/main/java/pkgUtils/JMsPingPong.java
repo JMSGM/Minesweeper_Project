@@ -1,15 +1,20 @@
 package pkgUtils;
 
 public class JMsPingPong {
-    private int ROWS = 0;
-    private int COLS = 0;
-    private int[][] LIVE_ARR = new int[ROWS][COLS];
-    private int[][] NEXT_ARR = new int[ROWS][COLS];
+    private int[][] LIVE_ARR;
+    private int[][] NEXT_ARR;
     JMsPingPong(int rows, int cols){
-
+        LIVE_ARR = new int[rows][cols];
+        NEXT_ARR = new int[rows][cols];
     }
     JMsPingPong(int rows, int cols, int value){
-
+        LIVE_ARR = new int[rows][cols];
+        NEXT_ARR = new int[rows][cols];
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                LIVE_ARR[row][col] = value;
+                }
+            }
     }
     JMsPingPong(int rows, int cols, int lower, int upper){
 
