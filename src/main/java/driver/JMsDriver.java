@@ -2,16 +2,27 @@ package driver;
 import pkgRenderer.JMsPolygonGen;
 import pkgRenderer.JMsRenderEngine;
 import pkgUtils.JMsWindowManager;
-
+import pkgUtils.JMsPingPong;
 import static driver.JMsSpot.*;
 
 public class JMsDriver {
     public static void main(String[] my_args) {
-        JMsRenderEngine my_re = new JMsPolygonGen();
+        /*JMsRenderEngine my_re = new JMsPolygonGen();
         JMsWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");
         my_re.initOpenGL(JMsWindowManager.get());
         final float RADIUS = 0.05f;
         final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
         my_re.render(RADIUS);
+         */
+        JMsPingPong pp = new JMsPingPong(16, 16);
+        pp.printLiveArray();
+
+
+
+
+
+
+
+
     } // public static void main(String[] my_args)
 } // public class csc133Driver(...)

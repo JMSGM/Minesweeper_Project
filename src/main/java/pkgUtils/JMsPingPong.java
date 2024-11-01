@@ -125,8 +125,13 @@ public class JMsPingPong {
     void resetBoardToBinary(){
 
     }
-    void printLiveArray(){
-
+    public void printLiveArray(){
+        for(int row = 0; row < ROWS; row++){
+            System.out.println();
+            for(int col = 0; col < COLS; col++){
+                System.out.print(LIVE_ARR[row][col] + " ");
+            }
+        }
     }
 
 
