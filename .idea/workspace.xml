@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="implement set and get methods for LIVE_ARRAY">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Implement swapArrays()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" afterDir="false" />
     </list>
@@ -127,7 +127,7 @@
       <workItem from="1729706462275" duration="9060000" />
       <workItem from="1729882467134" duration="50000" />
       <workItem from="1729882522525" duration="22000" />
-      <workItem from="1730425275313" duration="5268000" />
+      <workItem from="1730425275313" duration="9159000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -321,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730430572754</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Implement swapArrays()">
+      <option name="closed" value="true" />
+      <created>1730430990515</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1730430990515</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +383,7 @@
     <MESSAGE value="Adjust fields and implement first two constructors" />
     <MESSAGE value="New random object, Implement constructor that bound value in each array cell" />
     <MESSAGE value="implement set and get methods for LIVE_ARRAY" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement set and get methods for LIVE_ARRAY" />
+    <MESSAGE value="Implement swapArrays()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement swapArrays()" />
   </component>
 </project>
