@@ -39,7 +39,9 @@ public class JMsPingPong {
         return LIVE_ARR[row][col] = value;
     }
     void swapArrays(){
-
+    int tmp[][] = LIVE_ARR;
+    LIVE_ARR = NEXT_ARR;
+    NEXT_ARR = tmp;
     }
     int countNearestNeighbor(){
        return 0;
