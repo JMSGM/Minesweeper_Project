@@ -3,9 +3,12 @@ package pkgUtils;
 import java.util.Random;
 
 public class JMsPingPong {
+    //Field
     private final Random myRandom = new Random();
     private int[][] LIVE_ARR;
     private int[][] NEXT_ARR;
+
+    //Constructors
     JMsPingPong(int rows, int cols){
         LIVE_ARR = new int[rows][cols];
         NEXT_ARR = new int[rows][cols];
@@ -28,12 +31,12 @@ public class JMsPingPong {
             }
         }
     }
-
-    void setArray(int count){
-
+    //Methods
+    void setLIVEArray(int row, int col, int value){
+        LIVE_ARR[row][col] = value;
     }
-    void getArray(int get){
-
+    int getLIVEArray(int row, int col, int value){
+        return LIVE_ARR[row][col] = value;
     }
     void swapArrays(){
 
