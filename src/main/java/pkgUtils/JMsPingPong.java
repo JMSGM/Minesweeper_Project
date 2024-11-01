@@ -37,19 +37,19 @@ public class JMsPingPong {
         }
     }
     //Methods
-    void setLIVEArray(int row, int col, int value){
+    public void setLIVEArray(int row, int col, int value){
         LIVE_ARR[row][col] = value;
     }
-    int getLIVEArray(int row, int col, int value){
+    public int getLIVEArray(int row, int col, int value){
         return LIVE_ARR[row][col] = value;
     }
-    void swapArrays(){
+    public void swapArrays(){
     int tmp[][] = LIVE_ARR;
     LIVE_ARR = NEXT_ARR;
     NEXT_ARR = tmp;
     }
     //count nearest neighbor of specified cell [row][col]
-    int countNearestNeighbor(int row, int col){
+    public int countNearestNeighbor(int row, int col){
         int count = 0;
 
         int prevRow = (row - 1 + ROWS) % ROWS;
@@ -76,7 +76,7 @@ public class JMsPingPong {
 
        return count;
     }
-    int countNextNearestNeighbor(int row, int col){
+    public int countNextNearestNeighbor(int row, int col){
         int count = 0;
 
         int prevRow = (row - 1 + ROWS) % ROWS;
@@ -119,10 +119,10 @@ public class JMsPingPong {
 
         return count;
     }
-    void resetBoardBetween(int val1, int val2){
+    public void resetBoardBetween(int val1, int val2){
 
     }
-    void resetBoardToBinary(){
+    public void resetBoardToBinary(){
 
     }
     public void printLiveArray(){
