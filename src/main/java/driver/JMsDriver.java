@@ -14,7 +14,13 @@ public class JMsDriver {
         final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
         my_re.render(RADIUS);
          */
-        JMsPingPong pp = new JMsPingPong(16, 16);
+
+        System.out.println("Array bounded 0 - 9 :");
+        JMsPingPong pp1To9 = new JMsPingPong(16, 16, 0, 9);
+        pp1To9.printLiveArray();
+
+        System.out.println("\n\nArray bounded 0 - 1 :");
+        JMsPingPong pp = new JMsPingPong(16, 16, 0, 1);
         pp.printLiveArray();
 
 
