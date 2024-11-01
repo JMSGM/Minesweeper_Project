@@ -10,8 +10,8 @@ public class JMsDriver {
         JMsRenderEngine my_re = new JMsPolygonGen();
         JMsWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");
         my_re.initOpenGL(JMsWindowManager.get());
-        final float RADIUS = 0.5f;
+        final float RADIUS = 0.05f;
         final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
-        my_re.render(FRAME_DELAY, NUM_ROWS, NUM_COLS);
+        my_re.render(RADIUS);
     } // public static void main(String[] my_args)
 } // public class csc133Driver(...)
