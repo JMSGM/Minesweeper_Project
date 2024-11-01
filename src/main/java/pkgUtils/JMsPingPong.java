@@ -11,13 +11,10 @@ public class JMsPingPong {
     private int[][] NEXT_ARR;
 
     //Constructors
-    JMsPingPong(int rows, int cols){
-        ROWS = rows;
-        COLS = cols;
-        LIVE_ARR = new int[rows][cols];
-        NEXT_ARR = new int[rows][cols];
+    public JMsPingPong(int rows, int cols){
+        this(rows, cols, 0, 1);
     }
-    JMsPingPong(int rows, int cols, int value){
+    public JMsPingPong(int rows, int cols, int value){
         ROWS = rows;
         COLS = cols;
         LIVE_ARR = new int[rows][cols];
@@ -28,14 +25,14 @@ public class JMsPingPong {
                 }
             }
     }
-    JMsPingPong(int rows, int cols, int lower, int upper){
+    public JMsPingPong(int rows, int cols, int lower, int upper){
         ROWS = rows;
         COLS = cols;
         LIVE_ARR = new int[rows][cols];
         NEXT_ARR = new int[rows][cols];
         for(int row = 0; row < rows; row++){
             for(int col = 0; col < cols; col++){
-                LIVE_ARR[row][col] = myRandom.nextInt(upper-lower) + lower;
+                LIVE_ARR[row][col] = myRandom.nextInt((upper-lower) + 1) + lower;
             }
         }
     }
@@ -60,23 +57,67 @@ public class JMsPingPong {
         int prevCol = (col - 1 + COLS) % COLS;
         int nextCol = (col + 1) % COLS;
 
+        //Top
         if (LIVE_ARR[prevRow][col] == 1){
             count += 1;
         }
-        if (LIVE_ARR[nextCol][col] == 1){
+        //Bottom
+        if (LIVE_ARR[nextRow][col] == 1){
             count += 1;
         }
+        //Left
         if (LIVE_ARR[row][prevCol] == 1){
             count += 1;
         }
+        //Right
         if (LIVE_ARR[row][nextCol] == 1){
             count += 1;
         }
 
        return count;
     }
-    int countNextNearestNeighbor(){
-        return 0;
+    int countNextNearestNeighbor(int row, int col){
+        int count = 0;
+
+        int prevRow = (row - 1 + ROWS) % ROWS;
+        int nextRow = (row + 1) % ROWS;
+        int prevCol = (col - 1 + COLS) % COLS;
+        int nextCol = (col + 1) % COLS;
+
+        // Top-left
+        if (LIVE_ARR[prevRow][prevCol] == 1) {
+            count += 1;
+        }
+        // Top
+        if (LIVE_ARR[prevRow][col] == 1) {
+            count += 1;
+        }
+        // Top-right
+        if (LIVE_ARR[prevRow][nextCol] == 1) {
+            count += 1;
+        }
+        // Left
+        if (LIVE_ARR[row][prevCol] == 1) {
+            count += 1;
+        }
+        // Right
+        if (LIVE_ARR[row][nextCol] == 1) {
+            count += 1;
+        }
+        // Bottom-left
+        if (LIVE_ARR[nextRow][prevCol] == 1) {
+            count += 1;
+        }
+        // Bottom
+        if (LIVE_ARR[nextRow][col] == 1) {
+            count += 1;
+        }
+        // Bottom-right
+        if (LIVE_ARR[nextRow][nextCol] == 1) {
+            count += 1;
+        }
+
+        return count;
     }
     void resetBoardBetween(int val1, int val2){
 

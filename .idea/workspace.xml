@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Implement swapArrays()">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Implement countNearestNeighbor()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" afterDir="false" />
     </list>
@@ -127,7 +127,7 @@
       <workItem from="1729706462275" duration="9060000" />
       <workItem from="1729882467134" duration="50000" />
       <workItem from="1729882522525" duration="22000" />
-      <workItem from="1730425275313" duration="9159000" />
+      <workItem from="1730425275313" duration="11710000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -329,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730430990515</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Implement countNearestNeighbor()">
+      <option name="closed" value="true" />
+      <created>1730435968473</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1730435968473</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +367,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create initial files needed and add previous driver" />
     <MESSAGE value="Working window class" />
     <MESSAGE value="Implement generateVert and drawPolygons, Create abstract class and methods, implement methods in subclass" />
     <MESSAGE value="revise abstract methods" />
@@ -384,6 +391,7 @@
     <MESSAGE value="New random object, Implement constructor that bound value in each array cell" />
     <MESSAGE value="implement set and get methods for LIVE_ARRAY" />
     <MESSAGE value="Implement swapArrays()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement swapArrays()" />
+    <MESSAGE value="Implement countNearestNeighbor()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement countNearestNeighbor()" />
   </component>
 </project>
