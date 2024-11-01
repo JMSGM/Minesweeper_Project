@@ -21,7 +21,6 @@ public class JMsDriver {
         pp.printLiveArray();
 
         System.out.println("\n\nNearest Neighbor :");
-        int[][] saveCount = new int[ROWS][COLS];
 
         for(int row = 0; row < ROWS; row++){
             for(int col = 0; col < COLS; col++){
@@ -31,8 +30,17 @@ public class JMsDriver {
         }
         pp.swapArrays();
         pp.printLiveArray();
+        pp.swapArrays();
+        System.out.println("\n\nNext Nearest Neighbor :");
 
-
+        for(int row = 0; row < ROWS; row++){
+            for(int col = 0; col < COLS; col++){
+                int neighborCount = pp.countNextNearestNeighbor(row, col);
+                pp.setNEXTVal(row, col, neighborCount);
+            }
+        }
+        pp.swapArrays();
+        pp.printLiveArray();
 
 
 
