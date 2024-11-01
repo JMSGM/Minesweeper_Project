@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Create methods and fields for pingpong class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Adjust fields and implement first two constructors">
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsPingPong.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +37,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="PingPong" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -114,7 +126,7 @@
       <workItem from="1729706462275" duration="9060000" />
       <workItem from="1729882467134" duration="50000" />
       <workItem from="1729882522525" duration="22000" />
-      <workItem from="1730425275313" duration="3306000" />
+      <workItem from="1730425275313" duration="3676000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -284,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730427290408</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Adjust fields and implement first two constructors">
+      <option name="closed" value="true" />
+      <created>1730429122571</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1730429122571</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +315,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="PingPong" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -323,6 +355,7 @@
     <MESSAGE value="add setter methods in RenderEngine" />
     <MESSAGE value="Add generatePolygonArray override that takes rows cols and radius" />
     <MESSAGE value="Create methods and fields for pingpong class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create methods and fields for pingpong class" />
+    <MESSAGE value="Adjust fields and implement first two constructors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjust fields and implement first two constructors" />
   </component>
 </project>
