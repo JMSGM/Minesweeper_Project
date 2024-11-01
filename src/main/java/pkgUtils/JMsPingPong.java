@@ -37,11 +37,14 @@ public class JMsPingPong {
         }
     }
     //Methods
-    public void setLIVEArray(int row, int col, int value){
+    public void setLIVEVal(int row, int col, int value){
         LIVE_ARR[row][col] = value;
     }
-    public int getLIVEArray(int row, int col, int value){
-        return LIVE_ARR[row][col] = value;
+    public void setNEXTVal(int row, int col, int value){
+        NEXT_ARR[row][col] = value;
+    }
+    public int getLIVEArray(int row, int col){
+        return LIVE_ARR[row][col];
     }
     public void swapArrays(){
     int tmp[][] = LIVE_ARR;

@@ -1,9 +1,5 @@
 package driver;
-import pkgRenderer.JMsPolygonGen;
-import pkgRenderer.JMsRenderEngine;
-import pkgUtils.JMsWindowManager;
 import pkgUtils.JMsPingPong;
-import static driver.JMsSpot.*;
 
 public class JMsDriver {
     public static void main(String[] my_args) {
@@ -14,15 +10,27 @@ public class JMsDriver {
         final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
         my_re.render(RADIUS);
          */
-
+        final int ROWS = 16;
+        final int COLS = 16;
         System.out.println("Array bounded 0 - 9 :");
-        JMsPingPong pp1To9 = new JMsPingPong(16, 16, 0, 9);
+        JMsPingPong pp1To9 = new JMsPingPong(ROWS, COLS, 0, 9);
         pp1To9.printLiveArray();
 
         System.out.println("\n\nArray bounded 0 - 1 :");
-        JMsPingPong pp = new JMsPingPong(16, 16, 0, 1);
+        JMsPingPong pp = new JMsPingPong(ROWS, COLS, 0, 1);
         pp.printLiveArray();
 
+        System.out.println("\n\nNearest Neighbor :");
+        int[][] saveCount = new int[ROWS][COLS];
+
+        for(int row = 0; row < ROWS; row++){
+            for(int col = 0; col < COLS; col++){
+                int neighborCount = pp.countNearestNeighbor(row, col);
+                pp.setNEXTVal(row, col, neighborCount);
+            }
+        }
+        pp.swapArrays();
+        pp.printLiveArray();
 
 
 
