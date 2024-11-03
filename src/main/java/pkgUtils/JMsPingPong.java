@@ -123,10 +123,18 @@ public class JMsPingPong {
         return count;
     }
     public void resetBoardBetween(int val1, int val2){
-
+        for(int row = 0; row < ROWS; row++){
+            for(int col = 0; col < COLS; col++){
+                LIVE_ARR[row][col] = myRandom.nextInt((val2 - val1) + 1) + val1;
+            }
+        }
     }
     public void resetBoardToBinary(){
-
+        for(int row = 0; row < ROWS; row++){
+            for(int col = 0; col < COLS; col++){
+                LIVE_ARR[row][col] = myRandom.nextInt(2);
+            }
+        }
     }
     public void printLiveArray(){
         for(int row = 0; row < ROWS; row++){

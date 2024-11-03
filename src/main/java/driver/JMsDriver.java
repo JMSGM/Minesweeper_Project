@@ -21,18 +21,18 @@ public class JMsDriver {
         pp.printLiveArray();
 
         System.out.println("\n\nNearest Neighbor :");
-
         for(int row = 0; row < ROWS; row++){
             for(int col = 0; col < COLS; col++){
                 int neighborCount = pp.countNearestNeighbor(row, col);
                 pp.setNEXTVal(row, col, neighborCount);
             }
         }
+
         pp.swapArrays();
         pp.printLiveArray();
         pp.swapArrays();
-        System.out.println("\n\nNext Nearest Neighbor :");
 
+        System.out.println("\n\nNext Nearest Neighbor :");
         for(int row = 0; row < ROWS; row++){
             for(int col = 0; col < COLS; col++){
                 int neighborCount = pp.countNextNearestNeighbor(row, col);
