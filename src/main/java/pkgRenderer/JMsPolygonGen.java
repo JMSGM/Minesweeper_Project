@@ -25,7 +25,8 @@ public class JMsPolygonGen extends JMsRenderEngine{
     @Override
     void renderPolygons(float cx, float cy, int sides, float radius) {
         float delTheta = 2.0f*(float)Math.PI/ sides;
-        float theta = 0.0f;
+        float theta = (float)(Math.PI/4);
+
         glBegin(GL_TRIANGLE_FAN);
         glVertex3f(cx, cy, Z0);
         for(int i = 0; i <= sides; ++i){

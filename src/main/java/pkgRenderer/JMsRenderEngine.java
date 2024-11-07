@@ -13,7 +13,7 @@ public abstract class JMsRenderEngine {
     private int DEFAULT_DELAY = 500;
     private int DEFAULT_ROWS = 30;
     private int DEFAULT_COLS = 30;
-    private int DEFAULT_SIDES = 30;
+    private int DEFAULT_SIDES = 4;
     private int DEFAULT_POLYGON_AMOUNT = 20;
     JMsWindowManager my_wm;
     private final Random myRandom = new Random();
@@ -124,7 +124,7 @@ public abstract class JMsRenderEngine {
                 float OPAC = myRandom.nextFloat();
                 glColor4f(R, G, B, OPAC);
 
-                generatePolygonArray(rows, cols, sides);
+                generatePolygonArray(rows, cols, DEFAULT_SIDES);
 
                 my_wm.swapBuffers();
 

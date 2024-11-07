@@ -1,15 +1,22 @@
 package driver;
+import pkgRenderer.JMsPolygonGen;
+import pkgRenderer.JMsRenderEngine;
 import pkgUtils.JMsPingPong;
+import pkgUtils.JMsWindowManager;
+
+
+import static driver.JMsSpot.WIN_HEIGHT;
+import static driver.JMsSpot.WIN_WIDTH;
 
 public class JMsDriver {
     public static void main(String[] my_args) {
-        /*JMsRenderEngine my_re = new JMsPolygonGen();
+        JMsRenderEngine my_re = new JMsPolygonGen();
         JMsWindowManager.get().initGLFWWindow(WIN_WIDTH, WIN_HEIGHT, "CSUS CSC133");
         my_re.initOpenGL(JMsWindowManager.get());
         final float RADIUS = 0.05f;
         final int FRAME_DELAY = 500, NUM_ROWS = 20, NUM_COLS = 20;
-        my_re.render(RADIUS);
-         */
+        my_re.render(FRAME_DELAY, NUM_ROWS, NUM_COLS);
+
         final int ROWS = 16;
         final int COLS = 16;
         System.out.println("Array bounded 0 - 9 :");
