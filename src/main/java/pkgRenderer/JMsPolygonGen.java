@@ -183,15 +183,23 @@ public class JMsPolygonGen extends JMsRenderEngine {
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (pp.getLIVEArray(row, col) == 1) {
+                int live = pp.getLIVEArray(row, col);
+                int next = pp.getNextArray(row, col);
+
+                if (live != next) {
                     float cx = -1.0f + xSpace * (col + 0.5f);
                     float cy = -1.0f + ySpace * (row + 0.5f);
+                    if(next == 1){
+                        glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+                    }else {
+                        glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+                    }renderPolygons(cx, cy, DEFAULT_SIDES, radius);
+                }
 
-                    renderPolygons(cx, cy, DEFAULT_SIDES, radius);
                 }
             }
         }
     }
 
-    }
+
 

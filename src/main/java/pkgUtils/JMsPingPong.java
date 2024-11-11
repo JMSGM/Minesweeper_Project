@@ -46,6 +46,9 @@ public class JMsPingPong {
     public int getLIVEArray(int row, int col){
         return LIVE_ARR[row][col];
     }
+    public int getNextArray(int row, int col){
+        return NEXT_ARR[row][col];
+    }
     public void swapArrays(){
     int tmp[][] = LIVE_ARR;
     LIVE_ARR = NEXT_ARR;

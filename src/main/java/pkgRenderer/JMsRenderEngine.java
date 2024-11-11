@@ -12,8 +12,8 @@ import static org.lwjgl.opengl.GL11C.glClear;
 public abstract class JMsRenderEngine {
     //Fields
     private int DEFAULT_DELAY = 500;
-    private int DEFAULT_ROWS = 16;
-    private int DEFAULT_COLS = 16;
+    private int DEFAULT_ROWS = 10;
+    private int DEFAULT_COLS = 10;
     private int DEFAULT_SIDES = 4;
     private int DEFAULT_POLYGON_AMOUNT = 20;
     private int[][] POLYGONS = new int [DEFAULT_ROWS][DEFAULT_COLS];
@@ -36,14 +36,17 @@ public abstract class JMsRenderEngine {
     //Render Methods
     public void render() {
 
+        createPingPong();
 
         while (!my_wm.isGlfwWindowClosed()) {
 
                 glfwPollEvents();
-                glClear(GL_COLOR_BUFFER_BIT);
-                glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-                createPingPong();
+
+
+
                 generateGameOfLife(DEFAULT_ROWS, DEFAULT_COLS);
+
+                pp.swapArrays();
 
                 my_wm.swapBuffers();
 
