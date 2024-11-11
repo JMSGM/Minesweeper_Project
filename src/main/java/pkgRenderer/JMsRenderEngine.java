@@ -12,8 +12,8 @@ import static org.lwjgl.opengl.GL11C.glClear;
 public abstract class JMsRenderEngine {
     //Fields
     private int DEFAULT_DELAY = 500;
-    private int DEFAULT_ROWS = 10;
-    private int DEFAULT_COLS = 10;
+    private int DEFAULT_ROWS = 100;
+    private int DEFAULT_COLS = 100;
     private int DEFAULT_SIDES = 4;
     private int DEFAULT_POLYGON_AMOUNT = 20;
     private int[][] POLYGONS = new int [DEFAULT_ROWS][DEFAULT_COLS];
@@ -36,21 +36,21 @@ public abstract class JMsRenderEngine {
     //Render Methods
     public void render() {
 
-        createPingPong();
+        createPingPong(); //initializes the ping pong array
 
         while (!my_wm.isGlfwWindowClosed()) {
 
-                glfwPollEvents();
+            glfwPollEvents();
 
+            updateGeneration(); //checks every cell and updates next generation
 
+            generateGameOfLife(DEFAULT_ROWS, DEFAULT_COLS); //renders each cell, black if 0, green if 1
 
-                generateGameOfLife(DEFAULT_ROWS, DEFAULT_COLS);
+            pp.swapArrays(); // swaps new generation with live array, cont. loop...
 
-                pp.swapArrays();
+            my_wm.swapBuffers();
 
-                my_wm.swapBuffers();
-
-                glfwPollEvents();
+            glfwPollEvents();
 
                 if (DEFAULT_DELAY > 0) {
                     try {
@@ -142,34 +142,31 @@ public abstract class JMsRenderEngine {
         System.out.println("\n\nArray bounded 0 - 1 :");
         this.pp = new JMsPingPong(DEFAULT_ROWS, DEFAULT_COLS, 0, 1);
         pp.printLiveArray();
-
-
-        System.out.println("\n\nNext Nearest Neighbor :");
+    }
+    protected void updateGeneration(){
         for (int row = 0; row < DEFAULT_ROWS; row++) {
             for (int col = 0; col < DEFAULT_COLS; col++) {
-                    int neighborCount = pp.countNextNearestNeighbor(row, col);
-                    int currentstate = pp.getLIVEArray(row, col);
-                    if(currentstate == 1){//if state is alive
-                        if(neighborCount < 2){ //rule 1 loneliness
-                            pp.setNEXTVal(row, col, 0);
-                        }
-                        else if(neighborCount == 2 || neighborCount == 3){ //rule 2 retain perfect condition
-                        pp.setNEXTVal(row, col, 1);
-                        }
-                        else if (neighborCount > 3) { // rule 3 overpopulation
+                int neighborCount = pp.countNextNearestNeighbor(row, col);
+                int currentstate = pp.getLIVEArray(row, col);
+                if(currentstate == 1){//if state is alive
+                    if(neighborCount < 2){ //rule 1 loneliness
                         pp.setNEXTVal(row, col, 0);
-                        }
-                    }else{ //cell is dead
-                            if(neighborCount == 3){ //rule 4 dead cell with three neighbor
-                                pp.setNEXTVal(row, col,1);
-                            } else {
-                                pp.setNEXTVal(row, col, 0);
-                            }
                     }
+                    else if(neighborCount == 2 || neighborCount == 3){ //rule 2 retain perfect condition
+                        pp.setNEXTVal(row, col, 1);
+                    }
+                    else if (neighborCount > 3) { // rule 3 overpopulation
+                        pp.setNEXTVal(row, col, 0);
+                    }
+                }else{ //cell is dead
+                    if(neighborCount == 3){ //rule 4 dead cell with three neighbor
+                        pp.setNEXTVal(row, col,1);
+                    } else {
+                        pp.setNEXTVal(row, col, 0);
+                    }
+                }
             }
         }
-        pp.swapArrays();
-        pp.printLiveArray();
     }
     //setter and getters for default values
     protected void setDEFAULT_ROWS(int rows){

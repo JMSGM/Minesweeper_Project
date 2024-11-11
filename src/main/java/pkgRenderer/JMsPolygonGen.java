@@ -176,6 +176,7 @@ public class JMsPolygonGen extends JMsRenderEngine {
     }
 
     //render game of life
+    @Override
     protected void generateGameOfLife(int rows, int cols) {
         float xSpace = 2.0f / cols;
         float ySpace = 2.0f / rows;
@@ -183,22 +184,19 @@ public class JMsPolygonGen extends JMsRenderEngine {
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                int live = pp.getLIVEArray(row, col);
-                int next = pp.getNextArray(row, col);
+                float cx = -1.0f + xSpace * (col + 0.5f);
+                float cy = -1.0f + ySpace * (row + 0.5f);
 
-                if (live != next) {
-                    float cx = -1.0f + xSpace * (col + 0.5f);
-                    float cy = -1.0f + ySpace * (row + 0.5f);
-                    if(next == 1){
-                        glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-                    }else {
-                        glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
-                    }renderPolygons(cx, cy, DEFAULT_SIDES, radius);
+                if (pp.getLIVEArray(row, col) == 1) {
+                    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);  //if alive
+                } else {
+                    glColor4f(0.0f, 0.0f, 0.0f, 1.0f); //if dead
                 }
 
-                }
+                renderPolygons(cx, cy, DEFAULT_SIDES, radius);  // Render each cell
             }
         }
+    }
     }
 
 
