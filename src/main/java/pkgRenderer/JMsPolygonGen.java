@@ -72,11 +72,9 @@ public class JMsPolygonGen extends JMsRenderEngine {
     private void updateRandValues() {
         for (int i = 0; i < MAX_CIRCLES; i++) {
             RAND_COLORS[i][0] = myRandom.nextFloat();
-            ;
             RAND_COLORS[i][1] = myRandom.nextFloat();
-            ;
             RAND_COLORS[i][2] = myRandom.nextFloat();
-            ;
+
             float maxX = 1.0f - RADIUS;
             float maxY = 1.0f - RADIUS;
             RAND_COORD[i][0] = myRandom.nextFloat() * 2.0f * maxX - maxX;

@@ -35,15 +35,14 @@ public abstract class JMsRenderEngine {
     }
     //Render Methods
     public void render() {
-        createPingPong();
+
 
         while (!my_wm.isGlfwWindowClosed()) {
 
-            glfwPollEvents();
-            glClear(GL_COLOR_BUFFER_BIT);
-
+                glfwPollEvents();
                 glClear(GL_COLOR_BUFFER_BIT);
-
+                glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+                createPingPong();
                 generateGameOfLife(DEFAULT_ROWS, DEFAULT_COLS);
 
                 my_wm.swapBuffers();
@@ -146,17 +145,26 @@ public abstract class JMsRenderEngine {
         for (int row = 0; row < DEFAULT_ROWS; row++) {
             for (int col = 0; col < DEFAULT_COLS; col++) {
                     int neighborCount = pp.countNextNearestNeighbor(row, col);
-                    if(neighborCount < 2){
-                        pp.setNEXTVal(row, col, 0);
-                    }
-                    else if(neighborCount == 2 || neighborCount == 3){
+                    int currentstate = pp.getLIVEArray(row, col);
+                    if(currentstate == 1){//if state is alive
+                        if(neighborCount < 2){ //rule 1 loneliness
+                            pp.setNEXTVal(row, col, 0);
+                        }
+                        else if(neighborCount == 2 || neighborCount == 3){ //rule 2 retain perfect condition
                         pp.setNEXTVal(row, col, 1);
-                    }
-                    else if(neighborCount > 3){
+                        }
+                        else if (neighborCount > 3) { // rule 3 overpopulation
                         pp.setNEXTVal(row, col, 0);
+                        }
+                    }else{ //cell is dead
+                            if(neighborCount == 3){ //rule 4 dead cell with three neighbor
+                                pp.setNEXTVal(row, col,1);
+                            } else {
+                                pp.setNEXTVal(row, col, 0);
+                            }
                     }
+            }
         }
-
         pp.swapArrays();
         pp.printLiveArray();
     }
