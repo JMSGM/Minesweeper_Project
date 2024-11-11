@@ -12,11 +12,12 @@ import static org.lwjgl.opengl.GL11C.glClear;
 public abstract class JMsRenderEngine {
     //Fields
     private int DEFAULT_DELAY = 500;
-    private int DEFAULT_ROWS = 30;
-    private int DEFAULT_COLS = 30;
+    private int DEFAULT_ROWS = 16;
+    private int DEFAULT_COLS = 16;
     private int DEFAULT_SIDES = 4;
     private int DEFAULT_POLYGON_AMOUNT = 20;
-    JMsPingPong pp;
+    private int[][] POLYGONS = new int [DEFAULT_ROWS][DEFAULT_COLS];
+    protected JMsPingPong pp;
     JMsWindowManager my_wm;
     private final Random myRandom = new Random();
     //Methods
@@ -25,6 +26,7 @@ public abstract class JMsRenderEngine {
     protected abstract void generatePolygonArray(int row, int cols, int sides);
     protected abstract void generatePolygonArray(float radius, int sides);
     protected abstract void generatePolygonArray(int row, int col);
+    protected abstract void generateGameOfLife(int rows, int cols);
     protected  abstract void renderRandomObject(JMsPolygon polygonObj);
     protected abstract JMsPolygon createRandomObject();
     public void initOpenGL(JMsWindowManager my_wm) {
@@ -33,54 +35,16 @@ public abstract class JMsRenderEngine {
     }
     //Render Methods
     public void render() {
-
-        System.out.println("\n\nArray bounded 0 - 1 :");
-        JMsPingPong pp = new JMsPingPong(DEFAULT_ROWS, DEFAULT_COLS, 0, 1);
-        pp.printLiveArray();
-
-        System.out.println("\n\nNearest Neighbor :");
-        for(int row = 0; row < DEFAULT_ROWS; row++){
-            for(int col = 0; col < DEFAULT_COLS; col++){
-                int neighborCount = pp.countNearestNeighbor(row, col);
-                pp.setNEXTVal(row, col, neighborCount);
-            }
-        }
-
-        pp.swapArrays();
-        pp.printLiveArray();
-        pp.swapArrays();
-
-        System.out.println("\n\nNext Nearest Neighbor :");
-        for(int row = 0; row < DEFAULT_ROWS; row++){
-            for(int col = 0; col < DEFAULT_COLS; col++){
-                int neighborCount = pp.countNextNearestNeighbor(row, col);
-                pp.setNEXTVal(row, col, neighborCount);
-            }
-        }
-        pp.swapArrays();
-        pp.printLiveArray();
+        createPingPong();
 
         while (!my_wm.isGlfwWindowClosed()) {
 
             glfwPollEvents();
             glClear(GL_COLOR_BUFFER_BIT);
-            boolean isBlack = false;
 
                 glClear(GL_COLOR_BUFFER_BIT);
-                if(isBlack) {
-                    float R = 0;
-                    float G = 0;
-                    float B = 0;
-                    float OPAC = 1.0f;
-                    glColor4f(R, G, B, OPAC);
-                }else{
-                    float R = 0;
-                    float G = 255;
-                    float B = 0;
-                    float OPAC = myRandom.nextFloat();
-                    glColor4f(R, G, B, OPAC);
-                }
-                generatePolygonArray(DEFAULT_ROWS, DEFAULT_COLS, DEFAULT_SIDES);
+
+                generateGameOfLife(DEFAULT_ROWS, DEFAULT_COLS);
 
                 my_wm.swapBuffers();
 
@@ -172,6 +136,30 @@ public abstract class JMsRenderEngine {
         }
         my_wm.destroyGLFWWindow();
     }
+    protected void createPingPong(){
+        System.out.println("\n\nArray bounded 0 - 1 :");
+        this.pp = new JMsPingPong(DEFAULT_ROWS, DEFAULT_COLS, 0, 1);
+        pp.printLiveArray();
+
+
+        System.out.println("\n\nNext Nearest Neighbor :");
+        for (int row = 0; row < DEFAULT_ROWS; row++) {
+            for (int col = 0; col < DEFAULT_COLS; col++) {
+                    int neighborCount = pp.countNextNearestNeighbor(row, col);
+                    if(neighborCount < 2){
+                        pp.setNEXTVal(row, col, 0);
+                    }
+                    else if(neighborCount == 2 || neighborCount == 3){
+                        pp.setNEXTVal(row, col, 1);
+                    }
+                    else if(neighborCount > 3){
+                        pp.setNEXTVal(row, col, 0);
+                    }
+        }
+
+        pp.swapArrays();
+        pp.printLiveArray();
+    }
     //setter and getters for default values
     protected void setDEFAULT_ROWS(int rows){
         this.DEFAULT_ROWS = rows;
@@ -187,6 +175,9 @@ public abstract class JMsRenderEngine {
     }
     protected void setDEFAULT_SIDES(int sides){
         this.DEFAULT_SIDES = sides;
+    }
+    protected int[][] getPOLYGONS(){
+        return this.POLYGONS;
     }
 
 
