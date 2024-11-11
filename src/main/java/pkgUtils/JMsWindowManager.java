@@ -61,7 +61,7 @@ public class JMsWindowManager {
     public void updateContextToThis(){
         glfwMakeContextCurrent(window);
         GL.createCapabilities();
-        float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 0.0f, CC_ALPHA = 1.0f;
+        float CC_RED = 255.0f, CC_GREEN = 255.0f, CC_BLUE = 255.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
     }
     //getCurrentWindowSize TODO
