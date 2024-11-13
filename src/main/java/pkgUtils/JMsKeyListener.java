@@ -5,7 +5,14 @@ import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
 public class JMsKeyListener {
 
+    private static JMsKeyListener my_kl;
+    private final boolean[] keyPressed = new boolean [400];
 
+    public static JMsKeyListener get(){
+        if(my_kl == null){
+            my_kl = new JMsKeyListener();
+        } return my_kl;
+    }
     public static void keyCallback(long my_window, int key, int scancode, int action, int modifier_key) {
         if (action == GLFW_PRESS) {
             get().keyPressed[key] = true;
@@ -22,8 +29,8 @@ public class JMsKeyListener {
     }
     // Call this function to receive one event for repeated presses:
     public static void resetKeypressEvent(int keyCode) {
-        if (my_instance != null && keyCode < get().keyPressed.length) {
-            my_instance.keyPressed[keyCode] = false;
+        if (get().keyPressed != null && keyCode < get().keyPressed.length) {
+            get().keyPressed[keyCode] = false;
         }
     }
 
