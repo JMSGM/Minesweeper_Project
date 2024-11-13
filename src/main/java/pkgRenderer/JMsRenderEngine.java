@@ -44,7 +44,8 @@ public abstract class JMsRenderEngine {
 
         while (!my_wm.isGlfwWindowClosed()) { //check keyboard input
             boolean KeepRunning = false;
-            if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed
+
+            if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed TODO move all logic to keyListener class or method
 
                 DEFAULT_DELAY += 10;
                 System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
@@ -54,9 +55,18 @@ public abstract class JMsRenderEngine {
             } else if(input.isKeyPressed(GLFW_KEY_D)){ // if D is pressed
                 KeepRunning = false;
                 DEFAULT_DELAY -= 10;
-                System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
+                if(DEFAULT_DELAY < 0){
+                    DEFAULT_DELAY = 0;
+                    System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
+                }else
+                System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
                 KeepRunning = true;
                 input.resetKeypressEvent(GLFW_KEY_D);
+                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+            }else if(input.isKeyPressed(GLFW_KEY_R)){
+                pp.resetBoardToBinary();
+                System.out.println("Board Reset!");
+                input.resetKeypressEvent(GLFW_KEY_R);
                 input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
             }
 

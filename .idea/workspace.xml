@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="implement JMsKeyListener with singleton design">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="create instance of keyListener in manager, and implement first logic for i and d in render method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsWindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgUtils/JMsWindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,7 @@
       <workItem from="1729882467134" duration="50000" />
       <workItem from="1729882522525" duration="22000" />
       <workItem from="1730425275313" duration="1704000" />
-      <workItem from="1730689772199" duration="29977000" />
+      <workItem from="1730689772199" duration="30592000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -342,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731473385013</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="create instance of keyListener in manager, and implement first logic for i and d in render method">
+      <option name="closed" value="true" />
+      <created>1731519730094</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1731519730094</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="revise abstract methods" />
     <MESSAGE value="Create field and method for random polygon generation" />
     <MESSAGE value="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()" />
     <MESSAGE value="Add delay to overrided three param render()" />
@@ -397,6 +403,7 @@
     <MESSAGE value="implement working version of game of life in render method, revise generateGameOfLife method, separate logic from pinpong initialization method" />
     <MESSAGE value="set up key listener class and given methods" />
     <MESSAGE value="implement JMsKeyListener with singleton design" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement JMsKeyListener with singleton design" />
+    <MESSAGE value="create instance of keyListener in manager, and implement first logic for i and d in render method" />
+    <option name="LAST_COMMIT_MESSAGE" value="create instance of keyListener in manager, and implement first logic for i and d in render method" />
   </component>
 </project>
