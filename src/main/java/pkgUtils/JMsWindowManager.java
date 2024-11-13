@@ -13,6 +13,7 @@ public class JMsWindowManager {
     int Win_Height = 0;
     private static long window = 0;
     private static JMsWindowManager singleWindow = null;
+    private static  JMsKeyListener keyListener;
     //Private Constructor
     private JMsWindowManager(){
     }
@@ -63,6 +64,10 @@ public class JMsWindowManager {
         GL.createCapabilities();
         float CC_RED = 0.0f, CC_GREEN = 0.0f, CC_BLUE = 0.0f, CC_ALPHA = 1.0f;
         glClearColor(CC_RED, CC_GREEN, CC_BLUE, CC_ALPHA);
+        keyListener = JMsKeyListener.get();
+        glfwSetKeyCallback(window, JMsKeyListener::keyCallback);
+
+
     }
     //getCurrentWindowSize TODO
 

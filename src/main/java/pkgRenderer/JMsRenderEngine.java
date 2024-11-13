@@ -1,16 +1,18 @@
 package pkgRenderer;
 
+import pkgUtils.JMsKeyListener;
 import pkgUtils.JMsPingPong;
 import pkgUtils.JMsWindowManager;
 
 import java.util.Random;
 
-import static org.lwjgl.glfw.GLFW.glfwPollEvents;
+import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11C.glClear;
-
+import static org.lwjgl.glfw.GLFW.*;
 public abstract class JMsRenderEngine {
     //Fields
+    private JMsKeyListener input = JMsKeyListener.get();
     private int DEFAULT_DELAY = 10;
     private int DEFAULT_ROWS = 100;
     private int DEFAULT_COLS = 100;
@@ -31,14 +33,33 @@ public abstract class JMsRenderEngine {
     protected abstract JMsPolygon createRandomObject();
     public void initOpenGL(JMsWindowManager my_wm) {
         this.my_wm = my_wm;
+
         my_wm.updateContextToThis();
+
+
     }
     //Render Methods
     public void render() {
-
         createPingPong(); //initializes the ping pong array
 
-        while (!my_wm.isGlfwWindowClosed()) {
+        while (!my_wm.isGlfwWindowClosed()) { //check keyboard input
+            boolean KeepRunning = false;
+            if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed
+
+                DEFAULT_DELAY += 10;
+                System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
+                KeepRunning = true;
+                input.resetKeypressEvent(GLFW_KEY_I);
+                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+            } else if(input.isKeyPressed(GLFW_KEY_D)){ // if D is pressed
+                KeepRunning = false;
+                DEFAULT_DELAY -= 10;
+                System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
+                KeepRunning = true;
+                input.resetKeypressEvent(GLFW_KEY_D);
+                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+            }
+
 
             glfwPollEvents();
 
@@ -52,14 +73,19 @@ public abstract class JMsRenderEngine {
 
             glfwPollEvents();
 
-                if (DEFAULT_DELAY > 0) {
+                    if (DEFAULT_DELAY > 0) {
                     try {
                         Thread.sleep(DEFAULT_DELAY);
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
                 }
+
+
             }my_wm.destroyGLFWWindow();
+
+
+
         }
 
 
