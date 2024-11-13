@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11C.glClear;
 
 public abstract class JMsRenderEngine {
     //Fields
-    private int DEFAULT_DELAY = 500;
+    private int DEFAULT_DELAY = 10;
     private int DEFAULT_ROWS = 100;
     private int DEFAULT_COLS = 100;
     private int DEFAULT_SIDES = 4;

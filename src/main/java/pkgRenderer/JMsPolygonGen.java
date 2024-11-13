@@ -188,7 +188,7 @@ public class JMsPolygonGen extends JMsRenderEngine {
                 float cy = -1.0f + ySpace * (row + 0.5f);
 
                 if (pp.getLIVEArray(row, col) == 1) {
-                    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);  //if alive
+                    glColor4f(.0f, 1.0f, 0.0f, 1.0f);  //if alive
                 } else {
                     glColor4f(0.0f, 0.0f, 0.0f, 1.0f); //if dead
                 }
