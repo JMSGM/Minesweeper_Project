@@ -13,7 +13,7 @@ import static org.lwjgl.opengl.GL11C.glClear;
 public abstract class JMsRenderEngine {
     //Fields
     private JMsKeyListener input = JMsKeyListener.get();
-    private int DEFAULT_DELAY = 10;
+    private int DEFAULT_DELAY = 1;
     private int DEFAULT_ROWS = 100;
     private int DEFAULT_COLS = 100;
     private int DEFAULT_SIDES = 4;
@@ -148,9 +148,9 @@ public abstract class JMsRenderEngine {
     }
     //Game of Life
     protected void createPingPong(){
-        System.out.println("\n\nArray bounded 0 - 1 :");
+        System.out.println("\n\nKeyBLogs:");
         this.pp = new JMsPingPong(DEFAULT_ROWS, DEFAULT_COLS, 0, 1);
-        pp.printLiveArray();
+
     }
     protected void updateGeneration(){
         for (int row = 0; row < DEFAULT_ROWS; row++) {
@@ -183,14 +183,14 @@ public abstract class JMsRenderEngine {
 
         if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed
 
-            DEFAULT_DELAY += 10;
+            DEFAULT_DELAY += 500;
             System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
             KeepRunning = true;
             input.resetKeypressEvent(GLFW_KEY_I);
             input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
         } else if(input.isKeyPressed(GLFW_KEY_D)){ // if D is pressed
             KeepRunning = false;
-            DEFAULT_DELAY -= 10;
+            DEFAULT_DELAY -= 500;
             if(DEFAULT_DELAY < 0){
                 DEFAULT_DELAY = 0;
                 System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
