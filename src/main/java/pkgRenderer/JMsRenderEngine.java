@@ -9,7 +9,7 @@ import java.util.Random;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11C.glClear;
-import static org.lwjgl.glfw.GLFW.*;
+
 public abstract class JMsRenderEngine {
     //Fields
     private JMsKeyListener input = JMsKeyListener.get();
@@ -19,9 +19,9 @@ public abstract class JMsRenderEngine {
     private int DEFAULT_SIDES = 4;
     private int DEFAULT_POLYGON_AMOUNT = 20;
     private int[][] POLYGONS = new int [DEFAULT_ROWS][DEFAULT_COLS];
-    protected JMsPingPong pp;
-    JMsWindowManager my_wm;
+    private JMsWindowManager my_wm;
     private final Random myRandom = new Random();
+    protected JMsPingPong pp;
     //Methods
     abstract void renderPolygons(float cx, float cy, int sides, float radius);
     abstract void renderRandomPolygons(int polyAmount);
@@ -43,33 +43,8 @@ public abstract class JMsRenderEngine {
         createPingPong(); //initializes the ping pong array
 
         while (!my_wm.isGlfwWindowClosed()) { //check keyboard input
-            boolean KeepRunning = false;
 
-            if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed TODO move all logic to keyListener class or method
-
-                DEFAULT_DELAY += 10;
-                System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
-                KeepRunning = true;
-                input.resetKeypressEvent(GLFW_KEY_I);
-                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
-            } else if(input.isKeyPressed(GLFW_KEY_D)){ // if D is pressed
-                KeepRunning = false;
-                DEFAULT_DELAY -= 10;
-                if(DEFAULT_DELAY < 0){
-                    DEFAULT_DELAY = 0;
-                    System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
-                }else
-                System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
-                KeepRunning = true;
-                input.resetKeypressEvent(GLFW_KEY_D);
-                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
-            }else if(input.isKeyPressed(GLFW_KEY_R)){
-                pp.resetBoardToBinary();
-                System.out.println("Board Reset!");
-                input.resetKeypressEvent(GLFW_KEY_R);
-                input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
-            }
-
+            handleInput();
 
             glfwPollEvents();
 
@@ -94,10 +69,7 @@ public abstract class JMsRenderEngine {
 
             }my_wm.destroyGLFWWindow();
 
-
-
         }
-
 
     public void render(float radius) {
         while (!my_wm.isGlfwWindowClosed()) {
@@ -174,6 +146,7 @@ public abstract class JMsRenderEngine {
         }
         my_wm.destroyGLFWWindow();
     }
+    //Game of Life
     protected void createPingPong(){
         System.out.println("\n\nArray bounded 0 - 1 :");
         this.pp = new JMsPingPong(DEFAULT_ROWS, DEFAULT_COLS, 0, 1);
@@ -203,6 +176,36 @@ public abstract class JMsRenderEngine {
                 }
             }
         }
+    }
+    //input handling
+    protected void handleInput(){
+        boolean KeepRunning = false;
+
+        if (input.isKeyPressed(GLFW_KEY_I) ) { //if I is pressed
+
+            DEFAULT_DELAY += 10;
+            System.out.println("+++ Frame delay is now: " + DEFAULT_DELAY + " ms!");
+            KeepRunning = true;
+            input.resetKeypressEvent(GLFW_KEY_I);
+            input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+        } else if(input.isKeyPressed(GLFW_KEY_D)){ // if D is pressed
+            KeepRunning = false;
+            DEFAULT_DELAY -= 10;
+            if(DEFAULT_DELAY < 0){
+                DEFAULT_DELAY = 0;
+                System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
+            }else
+                System.out.println("--- Frame delay is now: " + DEFAULT_DELAY + " ms!");
+            KeepRunning = true;
+            input.resetKeypressEvent(GLFW_KEY_D);
+            input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+        }else if(input.isKeyPressed(GLFW_KEY_R)){
+            pp.resetBoardToBinary();
+            System.out.println("Board Reset!");
+            input.resetKeypressEvent(GLFW_KEY_R);
+            input.resetKeypressEvent(GLFW_KEY_LEFT_SHIFT);
+        }
+
     }
     //setter and getters for default values
     protected void setDEFAULT_ROWS(int rows){

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="create instance of keyListener in manager, and implement first logic for i and d in render method">
+    <list default="true" id="efb75ff8-75d1-4ab7-8be1-e4eb88100a55" name="Changes" comment="Implement all logic for required keys, separate input from render method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsGameOfLife.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsGameOfLife.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pkgRenderer/JMsRenderEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,21 +55,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "life-of-game",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;life-of-game&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jmsag\IdeaProjects\CSC133_Assignment" />
@@ -115,7 +116,9 @@
       <workItem from="1729882467134" duration="50000" />
       <workItem from="1729882522525" duration="22000" />
       <workItem from="1730425275313" duration="1704000" />
-      <workItem from="1730689772199" duration="30592000" />
+      <workItem from="1730689772199" duration="31711000" />
+      <workItem from="1731640421210" duration="605000" />
+      <workItem from="1731818006552" duration="2751000" />
     </task>
     <task id="LOCAL-00001" summary="Create initial files needed and add previous driver">
       <option name="closed" value="true" />
@@ -349,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731519730094</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Implement all logic for required keys, separate input from render method">
+      <option name="closed" value="true" />
+      <created>1731520256458</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1731520256458</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create field and method for random polygon generation" />
     <MESSAGE value="add new methods to implement renderRandomPolygons(), and implement working renderRandomPolygon()" />
     <MESSAGE value="Add delay to overrided three param render()" />
     <MESSAGE value="Implement PolygonColor(), generates random colors" />
@@ -404,6 +414,7 @@
     <MESSAGE value="set up key listener class and given methods" />
     <MESSAGE value="implement JMsKeyListener with singleton design" />
     <MESSAGE value="create instance of keyListener in manager, and implement first logic for i and d in render method" />
-    <option name="LAST_COMMIT_MESSAGE" value="create instance of keyListener in manager, and implement first logic for i and d in render method" />
+    <MESSAGE value="Implement all logic for required keys, separate input from render method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement all logic for required keys, separate input from render method" />
   </component>
 </project>
